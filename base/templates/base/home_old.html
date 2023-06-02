@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+ 
+<div class="home-container">
+
+    <!-- BROWSE TOPICS -->
+    <div>
+        {% include 'base/topics_component.html' %}
+    </div>
+    
+    <!-- CREATE ROOM -->
+    <div>
+        <h5>{{room_count}} rooms available</h5>
+        
+        <a href="{% url 'create-room' %}">Create room</a>
+        <hr>
+
+        <!-- ROOMS LOOP [FEED] -->
+        {% include 'base/feed_component.html' %}
+
+    </div>
+
+    <!-- RECENT ACTIVITY ROW -->
+    <div>
+        {% include 'base/activity_component.html' %}
+    </div>
+
+</div>
+
+{% endblock content %}
